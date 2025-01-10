@@ -1,0 +1,172 @@
+:root {
+    --colour: #550202;
+    --bg-colour: #111111;
+}
+
+body {
+    background-color: var(--bg-colour);
+    font-family: sans-serif;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    font-family: "Manrope";
+    font-weight: 650;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 40px);
+    height: calc(100vh - 40px);
+    padding: 10px;
+}
+
+.pfp-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.name {
+    margin-right: 2px;
+    margin-top: 10px;
+    font-size: 22px;
+    color: var(--colour);
+}
+
+.desc {
+    margin-top: 0px;
+    font-size: 14px;
+    color: var(--colour);
+}
+
+a:link {
+    color: var(--colour);
+}
+
+a:visited {
+    color: var(--colour);
+}
+
+#overlay-toggle {
+    position:absolute;
+    display: none;
+  }
+
+  .overlay {
+    z-index: 1;
+    background-color: hsl(0, 0%, 0%);
+  }
+
+  .overlay label {
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 100vw;
+    color: rgb(255, 255, 255);
+    font-size: 2.5rem;
+  }
+
+  .no-hover {
+    display: block;
+  }
+
+  .hover {
+    display: none;
+  }
+
+  .fullscreen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50.28%);
+    min-height: 100vh;
+    min-width: 100vw;
+  }
+
+  #overlay-toggle:checked ~ .overlay {
+    animation-fill-mode: forwards;
+    animation-name: fade, hide;
+    animation-delay: 0s, 800ms;
+    animation-duration: 1s, 0.5ms;
+  }
+
+  #overlay-toggle:checked ~ .overlay label {
+    animation-fill-mode: forwards;
+    animation-name: fade;
+    animation-delay: 0s;
+    animation-duration: 300ms;
+  }
+
+  @media(hover: hover) {
+    .hover {
+      display: block;
+    }
+    .no-hover {
+      display: none;
+    }
+  }
+
+  @keyframes fade{
+    to {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes hide {
+    to {
+      visibility: hidden;
+    }
+  }
+
+  .icon-container {
+      text-align: center;
+      margin-top: 20px;
+  }
+
+  .icon-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+  .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      color: white;
+  }
+
+  .tooltip i {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #550202;
+  }
+
+  .tooltip .tooltiptext {
+      font-family: "Manrope";
+      font-weight: 650;
+      margin-bottom: -10px;
+      visibility: hidden;
+      width: 60px;
+      background-color: transparent;
+      color: #550202;
+      text-align: center;
+      border-radius: 5px;
+      padding: 5px 0;
+      position: absolute;
+      z-index: 1;
+      bottom: 150%;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.5s ease, visibility 0.4s ease;
+  }
+
+  .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+  }
+
+  * {cursor: url(https://ani.cursors-4u.net/symbols/sym-9/sym845.png), auto !important;}
